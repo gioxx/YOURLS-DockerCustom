@@ -4,7 +4,7 @@ This repository contains a custom Docker image for [YOURLS](https://yourls.org/)
 
 ## 🧱 Base Image
 
-This image extends the official [`YOURLS`](https://hub.docker.com/r/yourls/yourls) Docker image.
+This image extends the official [`YOURLS`](https://hub.docker.com/_/yourls) Docker image.
 
 ## ✅ Features
 
@@ -116,5 +116,5 @@ Visit [gioxx.org](https://gioxx.org) for blog posts, tech, and other things.
 ## 🙌 Contributing
 
 Pull requests and feature suggestions are welcome.  
-If you find bugs or have feature requests, [open an issue](https://github.com/gioxx/YOURLS-PluginManager/issues).  
+If you find bugs or have feature requests, [open an issue](https://github.com/gioxx/YOURLS-DockerCustom/issues).  
 If you find it useful, leave a ⭐ on GitHub! ❤️
