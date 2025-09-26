@@ -1,4 +1,4 @@
-FROM yourls:latest
+FROM yourls
 
 RUN apt-get update && apt-get install -y \
     unzip \
