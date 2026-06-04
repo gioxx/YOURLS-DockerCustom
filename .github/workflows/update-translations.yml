@@ -1,0 +1,38 @@
+name: Refresh YOURLS translations
+
+on:
+  workflow_dispatch:
+  schedule:
+    # runs on the 1st and 16th of each month.
+    - cron: "0 8 1,16 * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh-translations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Refresh translation files
+        run: ./scripts/update-translations.sh
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/refresh-translations
+          delete-branch: true
+          commit-message: "chore: refresh translation files"
+          title: "Refresh YOURLS translation files"
+          body: |
+            Automated refresh of the curated YOURLS translation files.
+
+            This update keeps the following locales in sync with upstream:
+            - de_DE
+            - es_ES
+            - fr_FR
+            - it_IT

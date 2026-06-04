@@ -11,6 +11,8 @@ This image extends the official [`YOURLS`](https://hub.docker.com/_/yourls) Dock
 - Based on `yourls:latest`
 - Adds the PHP `zip` extension via `docker-php-ext-install`
 - Installs required system libraries (`libzip-dev`, `unzip`)
+- Bundles curated YOURLS translations for `de_DE`, `es_ES`, `fr_FR`, and `it_IT`
+- Preloads the latest [Advanced Plugin Manager](https://github.com/gioxx/YOURLS-PluginManager/releases) under `user/plugins/yourls-plugin-manager/`
 - Clean and production-ready Docker layer
 
 ## 📦 Usage
@@ -45,6 +47,37 @@ docker run -d --name yourls \
 docker exec -it yourls php -m | grep zip
 # Expected output: zip
 ```
+
+### 5. Refresh translation files
+
+This repository keeps a small curated set of YOURLS translation files for:
+
+- `de_DE`
+- `es_ES`
+- `fr_FR`
+- `it_IT`
+
+To refresh them from the upstream projects, run:
+
+```bash
+./scripts/update-translations.sh
+```
+
+The script updates both the `.po` and `.mo` files under `user/languages/`, which are copied into the image during build.
+The scheduled GitHub Action runs the same script automatically on the 1st and 16th of each month.
+
+### 6. Force a specific language
+
+The sample config file [`user/config-sample.php`](user/config-sample.php) includes the language block with the supported locales commented out. To force one language, copy it to `user/config.php` and uncomment the locale you want:
+
+- `de_DE`
+- `es_ES`
+- `fr_FR`
+- `it_IT`
+
+### 7. Preloaded plugin
+
+The latest Advanced Plugin Manager release is copied into `user/plugins/yourls-plugin-manager/` during build. It is available in the installation, but you still need to activate it manually from YOURLS Admin.
 
 ## 🛳️ Docker Compose: a practical example
 
