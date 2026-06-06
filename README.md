@@ -13,7 +13,7 @@ This image extends the official [`YOURLS`](https://hub.docker.com/_/yourls) Dock
 - Installs required system libraries (`libzip-dev`, `unzip`)
 - Bundles curated YOURLS translations for `de_DE`, `es_ES`, `fr_FR`, and `it_IT`
 - Preloads the latest [Advanced Plugin Manager](https://github.com/gioxx/YOURLS-PluginManager/releases) under `user/plugins/yourls-plugin-manager/`
-- Preloads the latest [YOURLS Language Switcher](https://github.com/gioxx/YOURLS-LanguageSwitcher/releases) into the image
+- Preloads the latest [Language Switcher](https://github.com/gioxx/YOURLS-LanguageSwitcher/releases) into the image
 - Clean and production-ready Docker layer
 
 ## 📦 Usage
