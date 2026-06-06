@@ -20,4 +20,14 @@ RUN set -eux; \
     cp -a "$plugin_dir"/. /usr/src/yourls/user/plugins/yourls-plugin-manager/; \
     rm -rf "$tmpdir"
 
+RUN set -eux; \
+    plugin_url="$(curl -fsSL https://api.github.com/repos/gioxx/YOURLS-LanguageSwitcher/releases/latest | sed -n 's/.*"zipball_url": "\([^"]*\)".*/\1/p' | head -n1)"; \
+    tmpdir="$(mktemp -d)"; \
+    curl -fsSL "$plugin_url" -o "$tmpdir/language-switcher.zip"; \
+    unzip -q "$tmpdir/language-switcher.zip" -d "$tmpdir"; \
+    plugin_dir="$(find "$tmpdir" -mindepth 1 -maxdepth 1 -type d | head -n1)"; \
+    mkdir -p /usr/src/yourls/user/plugins/language-switcher; \
+    cp -a "$plugin_dir"/. /usr/src/yourls/user/plugins/language-switcher/; \
+    rm -rf "$tmpdir"
+
 RUN php -m | grep zip

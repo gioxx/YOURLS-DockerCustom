@@ -13,7 +13,7 @@ This image extends the official [`YOURLS`](https://hub.docker.com/_/yourls) Dock
 - Installs required system libraries (`libzip-dev`, `unzip`)
 - Bundles curated YOURLS translations for `de_DE`, `es_ES`, `fr_FR`, and `it_IT`
 - Preloads the latest [Advanced Plugin Manager](https://github.com/gioxx/YOURLS-PluginManager/releases) under `user/plugins/yourls-plugin-manager/`
-- Preloads a `Language Switcher` plugin under `user/plugins/language-switcher/`
+- Preloads the latest [YOURLS Language Switcher](https://github.com/gioxx/YOURLS-LanguageSwitcher/releases) into the image
 - Clean and production-ready Docker layer
 
 ## 📦 Usage
@@ -71,7 +71,7 @@ The scheduled GitHub Action runs the same script automatically on the 1st and 16
 
 The latest Advanced Plugin Manager release is copied into `user/plugins/yourls-plugin-manager/` during build. It is available in the installation, but you still need to activate it manually from YOURLS Admin.
 
-The `Language Switcher` plugin is bundled in `user/plugins/language-switcher/`. After activation, use the plugin page to switch between the language files found in `user/languages/` without editing `config.php`.
+The latest YOURLS Language Switcher release is bundled with the image. After activation, use the plugin page to switch between the language files found in `user/languages/` without editing `config.php`.
 
 ## 🛳️ Docker Compose: a practical example
 
